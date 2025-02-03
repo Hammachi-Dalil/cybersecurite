@@ -24,8 +24,9 @@ defineProps<{
     background-color: $BackgroundColor; 
     box-shadow: 0 0 10px 0 $ShadowColor;
     color: $TextColor;
-    border-radius: 5px;
+    border-radius: 20px;
     max-width: 40vh;
+    padding: 4vh;
 
     &__stat {
         font-size: 4vh;
@@ -39,7 +40,6 @@ defineProps<{
         display: flex;
         align-items: center;
         gap: 20px;
-        padding: 5px 20px; 
     }
 
     &__body {

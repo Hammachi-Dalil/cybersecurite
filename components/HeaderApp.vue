@@ -29,17 +29,17 @@ const fermerMenu = () => {
         <!-- Menu principal -->
         <div class="header__menu" :class="{ 'menu--ouvert': menuOuvert }">
           <NuxtLink class="link" to="/" @click="fermerMenu">Accueil</NuxtLink>
-          <NuxtLink class="link" to="/ressource" @click="fermerMenu">Ressource</NuxtLink>
           <NuxtLink class="link" to="/thematique" @click="fermerMenu">Thématique</NuxtLink>
+          <NuxtLink class="link" to="/ressource" @click="fermerMenu">Ressource</NuxtLink>
           <NuxtLink class="link" to="/activite" @click="fermerMenu">Activité</NuxtLink>
-          <NuxtLink class="link mobile-only" to="/contact" @click="fermerMenu">Contact</NuxtLink>
-          <NuxtLink class="link mobile-only" to="/apropos" @click="fermerMenu">À propos</NuxtLink>
+          <NuxtLink class="link mobile-only" to="/Connexion" @click="fermerMenu">Connexion</NuxtLink>
+          <NuxtLink class="link mobile-only" to="/MonProfil" @click="fermerMenu">Mon Profil</NuxtLink>
         </div>
   
         <!-- Liens à droite (version PC uniquement) -->
         <div class="header__menuDroite">
-          <NuxtLink class="link" to="/contact">Contact</NuxtLink>
-          <NuxtLink class="link" to="/apropos">À propos</NuxtLink>
+          <NuxtLink class="link" to="/Connexion">Connexion</NuxtLink>
+          <NuxtLink class="link" to="/MonProfil">Mon Profil</NuxtLink>
         </div>
       </div>
     </main>

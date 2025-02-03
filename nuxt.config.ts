@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   css: [
     '@/assets/scss/main.scss'
   ],
+  plugins: ['~/plugins/supabase.ts'],
   vite: {
     css: {
       preprocessorOptions: {
@@ -17,6 +18,13 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+    },
+  },
 
 })

@@ -22,7 +22,7 @@ const evaluatePassword = (value: string) => {
   if (/\d/.test(value)) score++; // Contient un chiffre
   else reasons.value.push('Le mot de passe doit contenir au moins un chiffre.');
 
-  if (/[@$!%*?&#]/.test(value)) score++; // Contient un caractère spécial
+  if (/[@$!%*?&#)(/"'|'")]/.test(value)) score++; // Contient un caractère spécial
   else reasons.value.push('Le mot de passe doit contenir au moins un caractère spécial.');
 
   return score;
@@ -59,8 +59,9 @@ const passwordStrength = computed(() => {
 
 <style lang="scss">
 .password-strength {
-  margin: 20px;
+  padding: 8vh 2vh;
   font-family: Arial, sans-serif;
+  background-color: $greyPassword;
 
   &__input-container {
     display: flex;

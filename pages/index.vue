@@ -43,18 +43,30 @@ onMounted(() => {
     <!-- Introduction -->
     <div class="Introduction">
       <h1 class="Introduction__title">La cybersécurité, qu'est-ce que c'est ?</h1>
-        <p class="Introduction__paragraph">
-          La cybersécurité regroupe les pratiques et technologies visant à protéger les systèmes, 
-          réseaux et données contre les cyberattaques et accès non autorisés. 
-          Dans un monde où le numérique est omniprésent, elle est essentielle pour préserver nos informations personnelles, 
-          financières et professionnelles. Les cybermenaces, comme le phishing ou les malwares, peuvent entraîner des pertes financières, 
-          des vols de données ou une usurpation d'identité.
+        <div class="Introduction__container">
+          <p class="Introduction__paragraph">
+            À l’ère du numérique, où nos vies personnelles et professionnelles sont stockées en ligne, 
+            elle est devenue indispensable pour garantir la confidentialité, 
+            l’intégrité et la disponibilité des informations. Les cybermenaces sont variées : 
+            phishing, malwares, rançongiciels, attaques DDoS, espionnage industriel, ou encore piratage des objets connectés. 
+            Ces menaces peuvent entraîner le vol de données personnelles, des pertes financières, 
+            la paralysie d’entreprises, voire des atteintes aux infrastructures critiques comme les hôpitaux et les services publics. 
+            Se protéger passe par des gestes simples mais essentiels : utiliser des mots de passe complexes et uniques, 
+            activer l’authentification à deux facteurs, mettre à jour régulièrement ses logiciels, éviter les Wi-Fi publics non sécurisés, 
+            sauvegarder ses données, et surtout se méfier des e-mails et liens suspects. 
+            Les entreprises doivent aller plus loin en formant leurs employés, 
+            en chiffrant les données sensibles et en mettant en place des plans de réponse aux cyberattaques. 
+            Face à ces enjeux, les États renforcent les régulations comme le RGPD en Europe et investissent dans des agences spécialisées comme l’ANSSI en France. 
+            Cependant, la cybersécurité ne repose pas uniquement sur les gouvernements ou les entreprises : 
+            chacun a un rôle à jouer pour assurer un environnement numérique plus sûr. À l’avenir, 
+            avec la montée en puissance de l’intelligence artificielle, de l’IoT et des données massives, 
+            les défis seront encore plus importants, 
+            et il est primordial d’adopter dès maintenant une culture de la cybersécurité pour protéger notre vie numérique. 
+            notre vie privée.
+          </p>
 
-          Elle ne concerne pas uniquement les entreprises : 
-          chacun peut être une cible. Adopter des gestes simples, comme créer des mots de passe solides ou se méfier des e-mails suspects, 
-          permet de réduire les risques. La cybersécurité est donc indispensable pour naviguer en ligne en toute confiance et protéger 
-          notre vie privée.
-        </p>
+          <img src="/assets/media/laptop.jpg" alt="Image de la cybersécurite" class="Introduction__image"/>
+        </div>
     </div>
 
     <!-- Statistiques -->
@@ -69,6 +81,9 @@ onMounted(() => {
     <div class="PasswordTest">
       <PassordTest />
     </div>
+
+    <!-- section des 3 colonnes -->
+     <Colonne />
   </main>
 </template>
 
@@ -133,11 +148,30 @@ onMounted(() => {
 .Introduction {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
-  padding: 20px;
+  padding: 8vh 2vh;
   background-color: $SecondaryColor;
   color: $TextColor;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10vh;
+  }
+
+  &__image {
+  width: calc(1000px / 4); /* Réduit l'image à 1/4 de sa taille originale */
+  max-width: 250px; /* Empêche l'agrandissement excessif */
+  height: auto; /* Garde les proportions */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px $ShadowColor;
+  object-fit: contain; /* Assure que l’image s’affiche entièrement sans distorsion */
+  height: 250px;
+  max-height: 250px;
+  align-self: center;
+}
+
 
   &__title {
     font-size: 4vh;
@@ -158,6 +192,12 @@ onMounted(() => {
     &__paragraph {
       font-size: 2vh;
     }
+
+    .Introduction{
+      &__image{
+        display: none;
+      }
+    }
   }
 }
 
@@ -166,7 +206,7 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap; /* Permet aux éléments de revenir à la ligne */
   justify-content: space-around; /* Garde l'espacement entre les éléments */
-  padding: 20px;
+  padding: 8vh 2vh;
   gap: 20px;
   color: $TextColor;
   margin: 4vh 0;
@@ -185,4 +225,8 @@ onMounted(() => {
 }
 
 // Test du mot de passe
+.PasswordTest {
+  padding: auto 2vh;
+  padding-bottom: 8vh;
+}
 </style>
