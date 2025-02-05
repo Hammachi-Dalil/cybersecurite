@@ -1,5 +1,5 @@
 <script>
-  export default {
+export default {
   data() {
     return {
       currentQuestion: 0,
@@ -18,42 +18,6 @@
                 { text: "Un pare-feu avancé", correct: false },
                 { text: "Un système de cryptographie", correct: false }
               ]
-            },
-            {
-              question: "Quel est le but du phishing ?",
-              answers: [
-                { text: "Récupérer des informations personnelles", correct: true },
-                { text: "Vendre des logiciels de sécurité", correct: false },
-                { text: "Accélérer la connexion Internet", correct: false },
-                { text: "Supprimer les virus", correct: false }
-              ]
-            },
-            {
-              question: "Quel indice peut révéler un email de phishing ?",
-              answers: [
-                { text: "Une adresse email suspecte", correct: true },
-                { text: "Une promotion légitime d'une entreprise", correct: false },
-                { text: "Un logo bien placé", correct: false },
-                { text: "Un email de votre banque", correct: false }
-              ]
-            },
-            {
-              question: "Quelle action est recommandée face à un email suspect ?",
-              answers: [
-                { text: "Ne pas cliquer sur les liens", correct: true },
-                { text: "Ouvrir la pièce jointe immédiatement", correct: false },
-                { text: "Partager l'email à tous ses contacts", correct: false },
-                { text: "Se désabonner", correct: false }
-              ]
-            },
-            {
-              question: "Les fraudeurs utilisent souvent le phishing pour...",
-              answers: [
-                { text: "Voler des informations bancaires", correct: true },
-                { text: "Faire des blagues", correct: false },
-                { text: "Vendre des logiciels antivirus", correct: false },
-                { text: "Promouvoir un site web", correct: false }
-              ]
             }
           ]
         },
@@ -68,42 +32,6 @@
                 { text: "K#2d!x8L#pG", correct: true },
                 { text: "azerty", correct: false }
               ]
-            },
-            {
-              question: "Que doit contenir un bon mot de passe ?",
-              answers: [
-                { text: "Majuscules, chiffres, symboles", correct: true },
-                { text: "Seulement des lettres", correct: false },
-                { text: "Uniquement des chiffres", correct: false },
-                { text: "Votre nom et prénom", correct: false }
-              ]
-            },
-            {
-              question: "Pourquoi faut-il éviter d'utiliser un mot de passe unique ?",
-              answers: [
-                { text: "Pour éviter qu'un hacker accède à plusieurs comptes", correct: true },
-                { text: "Parce que c'est difficile à retenir", correct: false },
-                { text: "Car il faut un mot de passe court", correct: false },
-                { text: "Pour être original", correct: false }
-              ]
-            },
-            {
-              question: "Un bon gestionnaire de mot de passe permet...",
-              answers: [
-                { text: "De stocker et générer des mots de passe complexes", correct: true },
-                { text: "D'envoyer des mots de passe par SMS", correct: false },
-                { text: "D'éviter tout piratage", correct: false },
-                { text: "D'écrire les mots de passe sur papier", correct: false }
-              ]
-            },
-            {
-              question: "Que faire si un service a été piraté ?",
-              answers: [
-                { text: "Changer immédiatement son mot de passe", correct: true },
-                { text: "Ignorer la menace", correct: false },
-                { text: "Utiliser le même mot de passe", correct: false },
-                { text: "Envoyer son mot de passe au support", correct: false }
-              ]
             }
           ]
         },
@@ -113,47 +41,43 @@
             {
               question: "Quel est le principal objectif d’un ransomware ?",
               answers: [
-                { text: "Bloquer l'accès aux fichiers et demander une rançon", correct: true },
                 { text: "Voler les emails des utilisateurs", correct: false },
+                { text: "Bloquer l'accès aux fichiers et demander une rançon", correct: true },
                 { text: "Accélérer l'ordinateur", correct: false },
                 { text: "Installer des mises à jour", correct: false }
               ]
+            }
+          ]
+        },
+        {
+          title: "Quiz sur la Détection des Emails Frauduleux",
+          questions: [
+            {
+              email: `
+                <b>Expéditeur :</b> service-client@amazon-support.com <br>
+                <b>Objet :</b> Votre compte a été suspendu ! <br><br>
+                Bonjour, <br>
+                Nous avons détecté une activité inhabituelle sur votre compte Amazon. 
+                Veuillez vérifier votre identité en cliquant sur le lien suivant : <br> 
+                <a href="http://amazon-secure-login.com">Vérifier mon compte</a> <br><br>
+                Cordialement, <br>
+                L'équipe Amazon
+              `,
+              correct: false,
+              explanation: "Cet email est frauduleux ! L'adresse email semble légitime, mais le lien redirige vers un faux site (amazon-secure-login.com)."
             },
             {
-              question: "Quel est le meilleur moyen d'éviter un ransomware ?",
-              answers: [
-                { text: "Faire des sauvegardes régulières", correct: true },
-                { text: "Ouvrir tous les emails reçus", correct: false },
-                { text: "Désactiver son antivirus", correct: false },
-                { text: "Ne pas mettre à jour son PC", correct: false }
-              ]
-            },
-            {
-              question: "Comment un ransomware se propage-t-il ?",
-              answers: [
-                { text: "Par des pièces jointes piégées", correct: true },
-                { text: "En regardant des vidéos YouTube", correct: false },
-                { text: "En visitant un site gouvernemental", correct: false },
-                { text: "En jouant à des jeux vidéo", correct: false }
-              ]
-            },
-            {
-              question: "Que faire si votre ordinateur est infecté par un ransomware ?",
-              answers: [
-                { text: "Ne pas payer la rançon et restaurer une sauvegarde", correct: true },
-                { text: "Payer la rançon immédiatement", correct: false },
-                { text: "Ignorer l’alerte", correct: false },
-                { text: "Partager la rançon avec des amis", correct: false }
-              ]
-            },
-            {
-              question: "Quel comportement réduit le risque de ransomware ?",
-              answers: [
-                { text: "Éviter de télécharger des logiciels piratés", correct: true },
-                { text: "Cliquer sur tous les liens", correct: false },
-                { text: "Ignorer les mises à jour", correct: false },
-                { text: "Partager ses fichiers avec tout le monde", correct: false }
-              ]
+              email: `
+                <b>Expéditeur :</b> noreply@paypal.com <br>
+                <b>Objet :</b> Confirmation de votre transaction <br><br>
+                Bonjour, <br>
+                Votre paiement de 49,99€ à Netflix a bien été effectué. <br>
+                Vous pouvez consulter votre historique des transactions en vous connectant à votre compte. <br><br>
+                Merci d'utiliser PayPal. <br>
+                <b>Note :</b> Ne répondez pas à cet email, il est généré automatiquement.
+              `,
+              correct: true,
+              explanation: "Cet email est légitime ! Il ne contient aucun lien suspect et informe simplement d'une transaction."
             }
           ]
         }
@@ -161,39 +85,40 @@
       selectedQuiz: {}
     };
   },
-    created() {
-      const quizIndex = this.$route.query.quizIndex;
-      this.selectedQuiz = this.quizzes[quizIndex];
+  created() {
+    const quizIndex = this.$route.query.quizIndex;
+    this.selectedQuiz = this.quizzes[quizIndex];
+  },
+  methods: {
+    selectAnswer(isLegit) {
+      this.selectedAnswer = isLegit;
     },
-    methods: {
-      selectAnswer(index) {
-        this.selectedAnswer = index;
-      },
-      nextQuestion() {
-        if (this.selectedAnswer !== null) {
-          if (this.selectedQuiz.questions[this.currentQuestion].answers[this.selectedAnswer].correct) {
-            this.score++;
-          }
-          this.currentQuestion++;
-          this.selectedAnswer = null;
-  
-          if (this.currentQuestion >= this.selectedQuiz.questions.length) {
-            this.quizCompleted = true;
-          }
+    nextQuestion() {
+      if (this.selectedAnswer !== null) {
+        if (this.selectedQuiz.questions[this.currentQuestion].correct === this.selectedAnswer) {
+          this.score++;
         }
-      },
-      restartQuiz() {
-        this.currentQuestion = 0;
-        this.score = 0;
+        this.currentQuestion++;
         this.selectedAnswer = null;
-        this.quizCompleted = false;
-      },
-      goBack() {
-        this.$router.push("/activite");
+
+        if (this.currentQuestion >= this.selectedQuiz.questions.length) {
+          this.quizCompleted = true;
+        }
       }
+    },
+    restartQuiz() {
+      this.currentQuestion = 0;
+      this.score = 0;
+      this.selectedAnswer = null;
+      this.quizCompleted = false;
+    },
+    goBack() {
+      this.$router.push("/activite");
     }
-  };
-  </script>
+  }
+};
+</script>
+
 
 <template>
   <div class="quiz-container">

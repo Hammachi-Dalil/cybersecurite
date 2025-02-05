@@ -2,8 +2,7 @@
 defineProps<{ 
     stat: string;
     logo: string;
-}>(
-)
+}>();
 
 </script>
 

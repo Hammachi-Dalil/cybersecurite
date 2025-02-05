@@ -12,7 +12,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.3 } // La section est considérée visible lorsqu'au moins 10% de son contenu est visible
+    { threshold: 0.4 } // La section est considérée visible lorsqu'au moins 10% de son contenu est visible
   );
 
   if (statistiquesRef.value) {
@@ -82,8 +82,36 @@ onMounted(() => {
       <PassordTest />
     </div>
 
+
     <!-- section des 3 colonnes -->
-     <Colonne />
+    <div class="Colonne-container">
+      <Colonne title="Protection des Données" image="/_nuxt/assets/media/secu1.jpg"> 
+          Vos <strong>données personnelles</strong> sont précieuses. Nous vous apprenons à les protéger en 
+          adoptant les bonnes pratiques : <strong>gestion des permissions</strong>, chiffrement, et 
+          paramétrage de vos comptes pour éviter toute fuite d’informations. 
+        </Colonne>
+        <Colonne title="Protection des Données" image="/_nuxt/assets/media/secu2.jpg"> 
+          Un bon mot de passe est la première ligne de défense contre les attaques ! 
+          Découvrez <strong>comment créer des mots de passe robustes</strong>, l’importance de 
+          l’authentification à deux facteurs (2FA) et comment gérer efficacement vos 
+          identifiants sans compromettre votre sécurité. 
+        </Colonne>
+        <Colonne title="Protection des Données" image="/_nuxt/assets/media/laptop.jpg"> 
+          Internet regorge de <strong>pièges</strong> : hameçonnage (phishing), escroqueries en ligne, 
+          logiciels malveillants… Apprenez à repérer les signaux d’alerte, à vérifier 
+          l’authenticité des sites web et à protéger vos informations face aux menaces numériques. 
+        </Colonne>
+    </div>
+
+    <!-- section de l'image -->
+    <div class="Affiche">
+     <img src="/_nuxt/assets/media/bandeau_hack.jpg" alt="Affiche de la cybersecurite" class="Affiche__img">
+     <a href="/activite" class="Affiche__link">voir le quizz</a>
+    </div>
+
+    <!-- section de la phrise -->
+     <Phrise />
+     
   </main>
 </template>
 
@@ -201,7 +229,7 @@ onMounted(() => {
   }
 }
 
-// Statistiques
+// la vallée des Statistiques
 .Statistiques {
   display: flex;
   flex-wrap: wrap; /* Permet aux éléments de revenir à la ligne */
@@ -224,9 +252,60 @@ onMounted(() => {
   }
 }
 
-// Test du mot de passe
+// la rivière du Test du mot de passe
 .PasswordTest {
   padding: auto 2vh;
   padding-bottom: 8vh;
 }
+
+// le détroit des 3 Colonnes
+.Colonne-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10vh;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-bottom: 4vh;
+
+  /* Responsive pour les petits écrans */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+  // Image de cybersécurité
+  .Affiche {
+  position: relative; /* Permet au lien d'être positionné par rapport à cet élément */
+  text-align: center; /* Centre l'image si nécessaire */
+
+  &__img {
+    width: 100%;
+    filter: grayscale(70%);
+  }
+
+  &__link {
+    position: absolute;
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste parfaitement le centrage */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent pour la lisibilité */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  &__link:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
 </style>

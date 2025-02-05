@@ -27,6 +27,8 @@
             title: "Quiz sur les Ransomwares",
             description: "Découvrez comment éviter les rançongiciels et protéger vos fichiers.",
           }
+
+          
         ]
       };
     },
