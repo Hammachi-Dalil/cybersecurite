@@ -25,6 +25,9 @@ defineProps<{
 .grid-item {
   text-align: center;
   flex: 1;
+  background-color: $white;
+  padding: 2vh;
+  border-radius: 5vh;
 
   &__image {
     width: 150px;
@@ -38,7 +41,7 @@ defineProps<{
   &__title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #007bff; /* Bleu cybersécurité */
+    color: $PrimaryColor; /* Bleu cybersécurité */
     margin-bottom: 10px;
   }
 

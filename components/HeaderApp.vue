@@ -65,7 +65,7 @@ const fermerMenu = () => {
     align-items: center;
 
     a {
-      color: $BackgroundColor;
+      color: $TextColor;
       text-decoration: none;
       margin: 0 15px;
     }
@@ -96,7 +96,7 @@ const fermerMenu = () => {
     align-items: center;
 
     a {
-      color: $BackgroundColor;
+      color: $TextColor;
       margin-left: 15px;
       text-decoration: none;
     }

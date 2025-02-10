@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
 const statistiquesRef = ref(null);
@@ -109,8 +109,12 @@ onMounted(() => {
      <a href="/activite" class="Affiche__link">voir le quizz</a>
     </div>
 
+    <!-- section des articles -->
+    <ArticlesList />
+
     <!-- section de la phrise -->
      <Phrise />
+
      
   </main>
 </template>
@@ -136,7 +140,7 @@ onMounted(() => {
     top: 30%;
     left: 5%;
     padding: 20px;
-    color: $BackgroundColor;
+    color: $TextColor;
   }
 
   &__sentence {
@@ -178,7 +182,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   padding: 8vh 2vh;
-  background-color: $SecondaryColor;
+  background-color: $BackgroundColor;
   color: $TextColor;
 
   &__container {
@@ -284,6 +288,7 @@ onMounted(() => {
   &__img {
     width: 100%;
     filter: grayscale(70%);
+    height: 80vh;
   }
 
   &__link {
@@ -305,6 +310,12 @@ onMounted(() => {
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  @include large-down {
+    &__img {
+      height: auto;
+    }
   }
 }
 

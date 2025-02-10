@@ -20,9 +20,9 @@ defineProps<{
 
 <style lang="scss">
 .statistique {
-    background-color: $BackgroundColor; 
+    background-color: $white; 
     box-shadow: 0 0 10px 0 $ShadowColor;
-    color: $TextColor;
+    color: $TextColorBlack;
     border-radius: 20px;
     max-width: 40vh;
     padding: 4vh;
