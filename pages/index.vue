@@ -34,9 +34,9 @@ onMounted(() => {
       <!-- Contenu sur vidéo en arrière-plan -->
       <div class="Home__content">
         <h1 class="Home__sentence">
-          Bienvenue sur <span class="Home__title">mon site Nuxt</span>
+          Bienvenue sur <span class="Home__title">Cyberase</span>
         </h1>
-        <p class="Home__subtitle"> Parce que la sécurité c'est aussi sur le web</p>
+        <p class="Home__subtitle">Pour effacer vos mauvaises habitudes en ligne</p>
       </div>
     </div>
 
@@ -90,13 +90,13 @@ onMounted(() => {
           adoptant les bonnes pratiques : <strong>gestion des permissions</strong>, chiffrement, et 
           paramétrage de vos comptes pour éviter toute fuite d’informations. 
         </Colonne>
-        <Colonne title="Protection des Données" image="/_nuxt/assets/media/secu2.jpg"> 
+        <Colonne title="Mot de passe robuste" image="/_nuxt/assets/media/secu2.jpg"> 
           Un bon mot de passe est la première ligne de défense contre les attaques ! 
           Découvrez <strong>comment créer des mots de passe robustes</strong>, l’importance de 
           l’authentification à deux facteurs (2FA) et comment gérer efficacement vos 
           identifiants sans compromettre votre sécurité. 
         </Colonne>
-        <Colonne title="Protection des Données" image="/_nuxt/assets/media/laptop.jpg"> 
+        <Colonne title="Vigilences au arnaques" image="/_nuxt/assets/media/laptop.jpg"> 
           Internet regorge de <strong>pièges</strong> : hameçonnage (phishing), escroqueries en ligne, 
           logiciels malveillants… Apprenez à repérer les signaux d’alerte, à vérifier 
           l’authenticité des sites web et à protéger vos informations face aux menaces numériques. 
@@ -157,6 +157,7 @@ onMounted(() => {
     margin: 0;
     padding-left: 0.5vh;
     font-weight: bold;
+    font-family: "Comfortaa", cursive;
   }
 
   @include large-down {
@@ -296,7 +297,7 @@ onMounted(() => {
     top: 50%; /* Centre verticalement */
     left: 50%; /* Centre horizontalement */
     transform: translate(-50%, -50%); /* Ajuste parfaitement le centrage */
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent pour la lisibilité */
+    background-color: rgba(0, 0, 0, 1); /* Fond semi-transparent pour la lisibilité */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;

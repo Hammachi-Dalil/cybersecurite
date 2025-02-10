@@ -21,7 +21,7 @@ defineProps<{
 <style lang="scss">
 .statistique {
     background-color: $white; 
-    box-shadow: 0 0 10px 0 $ShadowColor;
+    box-shadow: 0 0 5px 0 $ShadowColor;
     color: $TextColorBlack;
     border-radius: 20px;
     max-width: 40vh;

@@ -221,14 +221,13 @@ onMounted(async () => {
   &__title {
     font-size: 2rem;
     font-weight: bold;
-    color: $TitleColor;
+    color: $TextColor;
     margin-bottom: 1.5rem;
     text-align: center;
   }
 
   &__form {
     background: $white;
-    box-shadow: 0 4px 8px $ShadowColor;
     border-radius: 10px;
     padding: 2rem;
     width: 100%;
@@ -248,7 +247,7 @@ onMounted(async () => {
   &__label {
     font-size: 1rem;
     font-weight: 600;
-    color: $TextColor;
+    color: $TextColorBlack;
   }
 
   &__input {
@@ -294,7 +293,7 @@ onMounted(async () => {
 
   &__users-title {
     font-size: 1.5rem;
-    color: $TitleColor;
+    color: $TextColor;
     margin-bottom: 1rem;
     text-align: center;
   }
@@ -305,14 +304,13 @@ onMounted(async () => {
   }
 
   &__user-item {
-    background: $SecondaryColor;
+    background: $white;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba($ShadowColor, 0.5);
     font-size: 1rem;
     font-weight: 500;
-    color: $TextColor;
+    color: $TextColorBlack;
   }
 }
 
