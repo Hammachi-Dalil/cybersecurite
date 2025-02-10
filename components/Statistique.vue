@@ -2,8 +2,7 @@
 defineProps<{ 
     stat: string;
     logo: string;
-}>(
-)
+}>();
 
 </script>
 
@@ -21,9 +20,9 @@ defineProps<{
 
 <style lang="scss">
 .statistique {
-    background-color: $BackgroundColor; 
-    box-shadow: 0 0 10px 0 $ShadowColor;
-    color: $TextColor;
+    background-color: $white; 
+    box-shadow: 0 0 5px 0 $ShadowColor;
+    color: $TextColorBlack;
     border-radius: 20px;
     max-width: 40vh;
     padding: 4vh;

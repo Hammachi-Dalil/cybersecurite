@@ -126,7 +126,7 @@ const updateProfile = async () => {
   &__title {
     font-size: 2rem;
     font-weight: bold;
-    color: $TitleColor;
+    color: $TextColor;
     margin-bottom: 1.5rem;
     text-align: center;
   }
@@ -153,7 +153,7 @@ const updateProfile = async () => {
   &__label {
     font-size: 1rem;
     font-weight: 600;
-    color: $TextColor;
+    color: $TextColorBlack;
   }
 
   &__input {
@@ -193,7 +193,7 @@ const updateProfile = async () => {
   // Section d'affichage des informations utilisateur
   &__info {
     margin-top: 2rem;
-    background: $SecondaryColor;
+    background: $PrimaryColor;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba($ShadowColor, 0.5);
@@ -205,7 +205,7 @@ const updateProfile = async () => {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 1rem;
-      color: $TitleColor;
+      color: $TextColor;
     }
 
     &-item {
@@ -216,7 +216,7 @@ const updateProfile = async () => {
 
       span {
         font-weight: bold;
-        color: $PrimaryColor;
+        color: $TextColor;
       }
     }
   }

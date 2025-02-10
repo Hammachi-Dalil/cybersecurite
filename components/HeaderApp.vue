@@ -28,9 +28,7 @@ const fermerMenu = () => {
   
         <!-- Menu principal -->
         <div class="header__menu" :class="{ 'menu--ouvert': menuOuvert }">
-          <NuxtLink class="link" to="/" @click="fermerMenu">Accueil</NuxtLink>
-          <NuxtLink class="link" to="/thematique" @click="fermerMenu">Thématique</NuxtLink>
-          <NuxtLink class="link" to="/ressource" @click="fermerMenu">Ressource</NuxtLink>
+          <NuxtLink class="linkLogo" to="/" @click="fermerMenu">Cyberase</NuxtLink>
           <NuxtLink class="link" to="/activite" @click="fermerMenu">Activité</NuxtLink>
           <NuxtLink class="link mobile-only" to="/Connexion" @click="fermerMenu">Connexion</NuxtLink>
           <NuxtLink class="link mobile-only" to="/MonProfil" @click="fermerMenu">Mon Profil</NuxtLink>
@@ -65,7 +63,7 @@ const fermerMenu = () => {
     align-items: center;
 
     a {
-      color: $BackgroundColor;
+      color: $TextColor;
       text-decoration: none;
       margin: 0 15px;
     }
@@ -96,7 +94,7 @@ const fermerMenu = () => {
     align-items: center;
 
     a {
-      color: $BackgroundColor;
+      color: $TextColor;
       margin-left: 15px;
       text-decoration: none;
     }
@@ -176,5 +174,11 @@ const fermerMenu = () => {
       display: block;
     }
   }
+}
+
+.linkLogo {
+  font-family: "Comfortaa", serif;
+  font-weight: bolder;
+  font-size: larger;
 }
 </style>
