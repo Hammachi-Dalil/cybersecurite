@@ -100,6 +100,7 @@ const updateProfile = async () => {
       <p class="profile__info-item">Prénom: <span>{{ currentUser.first_name }}</span></p>
       <p class="profile__info-item">Nom: <span>{{ currentUser.last_name }}</span></p>
       <p class="profile__info-item">Email: <span>{{ currentUser.email }}</span></p>
+      <p class="profile__info-item">Dernier score au quizz: <span>{{ currentUser.last_score }}</span></p>
       <img v-if="currentUser && currentUser.avatar_url" :src="currentUser.avatar_url" alt="Avatar" class="profile__avatar" />
     </div>
   </div>

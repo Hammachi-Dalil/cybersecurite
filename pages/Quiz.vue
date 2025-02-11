@@ -1,63 +1,75 @@
-<script>
-export default {
-  data() {
-    return {
-      currentQuestion: 0,
-      selectedAnswer: null,
-      score: 0,
-      quizCompleted: false,
-      quizzes: [
-        {
-          title: "Quiz sur le Phishing",
-          questions: [
-            {
-              question: "Que signifie le terme 'phishing' en cybersécurité ?",
-              answers: [
-                { text: "Une technique de piratage basée sur des faux emails", correct: true },
-                { text: "Un virus informatique", correct: false },
-                { text: "Un pare-feu avancé", correct: false },
-                { text: "Un système de cryptographie", correct: false }
-              ]
-            },
-            {
-              question: "Quel est l'un des signes d'un email de phishing ?",
-              answers: [
-                { text: "Une adresse email suspecte", correct: true },
-                { text: "Un logo officiel de l'entreprise", correct: false },
-                { text: "Une absence de fautes d'orthographe", correct: false },
-                { text: "Un email reçu d'un ami", correct: false }
-              ]
-            },
-            {
-              question: "Quel est le but principal du phishing ?",
-              answers: [
-                { text: "Voler des informations personnelles", correct: true },
-                { text: "Installer des mises à jour logicielles", correct: false },
-                { text: "Bloquer un site internet", correct: false },
-                { text: "Envoyer des spams", correct: false }
-              ]
-            },
-            {
-              question: "Quel comportement adopter face à un email suspect ?",
-              answers: [
-                { text: "Ne pas cliquer sur les liens et le signaler", correct: true },
-                { text: "Répondre pour demander plus d’informations", correct: false },
-                { text: "Ouvrir la pièce jointe pour vérifier", correct: false },
-                { text: "Transférer l'email à tous ses contacts", correct: false }
-              ]
-            },
-            {
-              question: "Quel est un moyen efficace de se protéger du phishing ?",
-              answers: [
-                { text: "Utiliser une authentification à deux facteurs", correct: true },
-                { text: "Accepter toutes les demandes d'accès", correct: false },
-                { text: "Utiliser un mot de passe simple", correct: false },
-                { text: "Partager ses informations de connexion", correct: false }
-              ]
-            }
-          ]
-        },
-        {
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { useNuxtApp } from '#app';
+import { useRoute, useRouter } from 'vue-router';
+
+// Supabase et routeur
+const { $supabase } = useNuxtApp();
+const route = useRoute();
+const router = useRouter();
+
+// Variables réactives
+const currentQuestion = ref(0);
+const selectedAnswer = ref<number | null>(null);
+const score = ref(0);
+const quizCompleted = ref(false);
+const selectedQuiz = ref<{ title: string; questions: any[] } | null>(null);
+const currentUser = ref<{ id: string; email: string } | null>(null);
+
+// Liste des quiz
+const quizzes = ref([
+  {
+    title: "Quiz sur le Phishing",
+    questions: [
+      {
+        question: "Que signifie le terme 'phishing' en cybersécurité ?",
+        answers: [
+          { text: "Une technique de piratage basée sur des faux emails", correct: true },
+          { text: "Un virus informatique", correct: false },
+          { text: "Un pare-feu avancé", correct: false },
+          { text: "Un système de cryptographie", correct: false }
+        ]
+      },
+      {
+        question: "Quel est l'un des signes d'un email de phishing ?",
+        answers: [
+          { text: "Une adresse email suspecte", correct: true },
+          { text: "Un logo officiel de l'entreprise", correct: false },
+          { text: "Une absence de fautes d'orthographe", correct: false },
+          { text: "Un email reçu d'un ami", correct: false }
+        ]
+      },
+      {
+        question: "Quel est le but principal du phishing ?",
+        answers: [
+          { text: "Voler des informations personnelles", correct: true },
+          { text: "Installer des mises à jour logicielles", correct: false },
+          { text: "Bloquer un site internet", correct: false },
+          { text: "Envoyer des spams", correct: false }
+        ]
+      },
+      {
+        question: "Quel comportement adopter face à un email suspect ?",
+        answers: [
+          { text: "Ne pas cliquer sur les liens et le signaler", correct: true },
+          { text: "Répondre pour demander plus d’informations", correct: false },
+          { text: "Ouvrir la pièce jointe pour vérifier", correct: false },
+          { text: "Transférer l'email à tous ses contacts", correct: false }
+        ]
+      },
+      {
+        question: "Quel est un moyen efficace de se protéger du phishing ?",
+        answers: [
+          { text: "Utiliser une authentification à deux facteurs", correct: true },
+          { text: "Accepter toutes les demandes d'accès", correct: false },
+          { text: "Utiliser un mot de passe simple", correct: false },
+          { text: "Partager ses informations de connexion", correct: false }
+        ]
+      }
+    ]
+  },
+
+  {
           title: "Quiz sur les Mots de Passe",
           questions: [
             {
@@ -157,56 +169,89 @@ export default {
             }
           ]
         }
-      ],
-      selectedQuiz: {}
-    };
-  },
-  created() {
-    const quizIndex = this.$route.query.quizIndex;
-    this.selectedQuiz = this.quizzes[quizIndex];
-  },
-  methods: {
-    selectAnswer(isLegit) {
-      this.selectedAnswer = isLegit;
-    },
-    nextQuestion() {
-  if (this.selectedAnswer !== null) {
-    // Vérifie si la réponse sélectionnée est correcte
-    if (this.selectedQuiz.questions[this.currentQuestion].answers[this.selectedAnswer].correct) {
-      this.score++;
-    }
-    
-    this.currentQuestion++;
-    this.selectedAnswer = null;
+]);
 
-    if (this.currentQuestion >= this.selectedQuiz.questions.length) {
-      this.quizCompleted = true;
-    }
-  }
-},
+// Récupérer l'utilisateur connecté
+const fetchCurrentUser = async () => {
+  const { data: user, error } = await $supabase.auth.getUser();
+  if (user?.user) {
+    const { data, error: userError } = await $supabase
+      .from('users')
+      .select('id, email')
+      .eq('id', user.user.id)
+      .single();
 
-    restartQuiz() {
-      this.currentQuestion = 0;
-      this.score = 0;
-      this.selectedAnswer = null;
-      this.quizCompleted = false;
-    },
-    goBack() {
-      this.$router.push("/activite");
+    if (!userError) {
+      currentUser.value = data;
     }
   }
 };
+
+// Sauvegarde du score dans Supabase
+const saveScore = async () => {
+  if (currentUser.value) {
+    const { error } = await $supabase
+      .from('users')
+      .update({ last_score: score.value })
+      .eq('id', currentUser.value.id);
+
+    if (error) {
+      console.error("Erreur lors de l'enregistrement du score :", error.message);
+    } else {
+      console.log("Score enregistré avec succès");
+    }
+  }
+};
+
+// Sélection du quiz
+onMounted(() => {
+  fetchCurrentUser();
+  const quizIndex = Number(route.query.quizIndex);
+  selectedQuiz.value = quizzes.value[quizIndex];
+});
+
+// Sélection d'une réponse
+const selectAnswer = (index: number) => {
+  selectedAnswer.value = index;
+};
+
+// Passer à la question suivante
+const nextQuestion = () => {
+  if (selectedAnswer.value !== null && selectedQuiz.value) {
+    if (selectedQuiz.value.questions[currentQuestion.value].answers[selectedAnswer.value].correct) {
+      score.value++;
+    }
+    currentQuestion.value++;
+    selectedAnswer.value = null;
+
+    if (currentQuestion.value >= selectedQuiz.value.questions.length) {
+      quizCompleted.value = true;
+      saveScore(); // Enregistrement du score une fois le quiz terminé
+    }
+  }
+};
+
+// Redémarrer le quiz
+const restartQuiz = () => {
+  currentQuestion.value = 0;
+  score.value = 0;
+  selectedAnswer.value = null;
+  quizCompleted.value = false;
+};
+
+// Retour au menu
+const goBack = () => {
+  router.push("/activite");
+};
 </script>
-
-
 
 <template>
   <div class="quiz-container">
     <button class="back-button" @click="goBack">⬅ Retour à la sélection</button>
-    <h2>{{ selectedQuiz.title }}</h2>
+    <h2 v-if="selectedQuiz">{{ selectedQuiz.title }}</h2>
 
     <div v-if="!quizCompleted">
-      <div v-if="currentQuestion < selectedQuiz.questions.length" class="question-box">
+      <div v-if="selectedQuiz && currentQuestion < selectedQuiz.questions.length" class="question-box">
         <h3>{{ selectedQuiz.questions[currentQuestion].question }}</h3>
         <ul>
           <li
@@ -230,9 +275,9 @@ export default {
       <ul class="summary-list">
         <li v-for="(question, index) in selectedQuiz.questions" :key="index">
           <p><strong>Question : </strong> {{ question.question }}</p>
-          <p><strong>Bonne réponse : </strong> 
+          <p><strong>Bonne réponse : </strong>
             <span class="correct-answer">
-              {{ question.answers.find(answer => answer.correct).text }}
+              {{ question.answers.find(answer => answer.correct)?.text }}
             </span>
           </p>
         </li>
@@ -242,6 +287,8 @@ export default {
     </div>
   </div>
 </template>
+
+
   
   <style lang="scss" scoped>
   .quiz-selection-container {

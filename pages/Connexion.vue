@@ -140,7 +140,7 @@ const signIn = async () => {
 onMounted(async () => {
   const { data, error } = await $supabase
     .from<'users', User>('users')
-    .select('id, email, first_name, last_name, avatar_url');
+    .select('id, email, first_name, last_name, avatar_url, last_score');
 
   if (error) {
     console.error('Erreur lors de la récupération des utilisateurs:', error);
