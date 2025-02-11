@@ -71,10 +71,10 @@ onMounted(() => {
 
     <!-- Statistiques -->
     <div class="Statistiques" ref="statistiquesRef">
-      <Statistique logo="/_nuxt/assets/media/clock.png" stat="11 secondes"> En 2024, une cyberattaque a lieu toutes les 11 secondes.</Statistique>
-      <Statistique logo="/_nuxt/assets/media/email.png" stat="95%"> des failles de sécurité sont dues à des erreurs humaines.</Statistique>
-      <Statistique logo="/_nuxt/assets/media/password.png" stat="80%"> des attaques initiales dans les entreprises sont du phishing</Statistique>
-      <Statistique logo="/_nuxt/assets/media/people.png" stat="80%"> des mots de passe les plus utilisés sont vulnérables à une attaque en moins d'une seconde.</Statistique>
+      <Statistique logo="/assets/media/clock.png" stat="11 secondes"> En 2024, une cyberattaque a lieu toutes les 11 secondes.</Statistique>
+      <Statistique logo="/assets/media/email.png" stat="95%"> des failles de sécurité sont dues à des erreurs humaines.</Statistique>
+      <Statistique logo="/assets/media/password.png" stat="80%"> des attaques initiales dans les entreprises sont du phishing</Statistique>
+      <Statistique logo="/assets/media/people.png" stat="80%"> des mots de passe les plus utilisés sont vulnérables à une attaque en moins d'une seconde.</Statistique>
     </div>
 
     <!-- Test du mot de passe -->
@@ -85,18 +85,18 @@ onMounted(() => {
 
     <!-- section des 3 colonnes -->
     <div class="Colonne-container">
-      <Colonne title="Protection des Données" image="/_nuxt/assets/media/secu1.jpg"> 
+      <Colonne title="Protection des Données" image="/assets/media/secu1.jpg"> 
           Vos <strong>données personnelles</strong> sont précieuses. Nous vous apprenons à les protéger en 
           adoptant les bonnes pratiques : <strong>gestion des permissions</strong>, chiffrement, et 
           paramétrage de vos comptes pour éviter toute fuite d’informations. 
         </Colonne>
-        <Colonne title="Mot de passe robuste" image="/_nuxt/assets/media/secu2.jpg"> 
+        <Colonne title="Mot de passe robuste" image="/assets/media/secu2.jpg"> 
           Un bon mot de passe est la première ligne de défense contre les attaques ! 
           Découvrez <strong>comment créer des mots de passe robustes</strong>, l’importance de 
           l’authentification à deux facteurs (2FA) et comment gérer efficacement vos 
           identifiants sans compromettre votre sécurité. 
         </Colonne>
-        <Colonne title="Vigilences au arnaques" image="/_nuxt/assets/media/laptop.jpg"> 
+        <Colonne title="Vigilences au arnaques" image="/assets/media/laptop.jpg"> 
           Internet regorge de <strong>pièges</strong> : hameçonnage (phishing), escroqueries en ligne, 
           logiciels malveillants… Apprenez à repérer les signaux d’alerte, à vérifier 
           l’authenticité des sites web et à protéger vos informations face aux menaces numériques. 
