@@ -45,36 +45,24 @@ onMounted(() => {
       <h1 class="Introduction__title">La cybersécurité, qu'est-ce que c'est ?</h1>
         <div class="Introduction__container">
           <p class="Introduction__paragraph">
-            À l’ère du numérique, où nos vies personnelles et professionnelles sont stockées en ligne, 
-            elle est devenue indispensable pour garantir la confidentialité, 
-            l’intégrité et la disponibilité des informations. Les cybermenaces sont variées : 
-            phishing, malwares, rançongiciels, attaques DDoS, espionnage industriel, ou encore piratage des objets connectés. 
-            Ces menaces peuvent entraîner le vol de données personnelles, des pertes financières, 
-            la paralysie d’entreprises, voire des atteintes aux infrastructures critiques comme les hôpitaux et les services publics. 
-            Se protéger passe par des gestes simples mais essentiels : utiliser des mots de passe complexes et uniques, 
-            activer l’authentification à deux facteurs, mettre à jour régulièrement ses logiciels, éviter les Wi-Fi publics non sécurisés, 
-            sauvegarder ses données, et surtout se méfier des e-mails et liens suspects. 
-            Les entreprises doivent aller plus loin en formant leurs employés, 
-            en chiffrant les données sensibles et en mettant en place des plans de réponse aux cyberattaques. 
-            Face à ces enjeux, les États renforcent les régulations comme le RGPD en Europe et investissent dans des agences spécialisées comme l’ANSSI en France. 
-            Cependant, la cybersécurité ne repose pas uniquement sur les gouvernements ou les entreprises : 
-            chacun a un rôle à jouer pour assurer un environnement numérique plus sûr. À l’avenir, 
-            avec la montée en puissance de l’intelligence artificielle, de l’IoT et des données massives, 
-            les défis seront encore plus importants, 
-            et il est primordial d’adopter dès maintenant une culture de la cybersécurité pour protéger notre vie numérique. 
-            notre vie privée.
+            À l’ère du numérique, la cybersécurité est essentielle pour protéger nos données et préserver la confidentialité. 
+            Les cybermenaces (phishing, malwares, ransomwares, piratage) peuvent causer des pertes financières et paralyser des entreprises. 
+            Se protéger passe par des gestes simples : mots de passe sécurisés, mises à jour, authentification à deux facteurs, 
+            vigilance face aux liens suspects. Les entreprises doivent former leurs équipes et sécuriser leurs données. 
+            Les États renforcent les régulations, mais chacun a un rôle à jouer. Avec l’essor de l’IA et de l’IoT, les défis grandissent : 
+            adoptons dès maintenant une culture de cybersécurité.
           </p>
 
-          <img src="/assets/media/laptop.jpg" alt="Image de la cybersécurite" class="Introduction__image"/>
+          <img src="/images/laptop.jpg" alt="Image de la cybersécurite" class="Introduction__image"/>
         </div>
     </div>
 
     <!-- Statistiques -->
     <div class="Statistiques" ref="statistiquesRef">
-      <Statistique logo="/assets/media/clock.png" stat="11 secondes"> En 2024, une cyberattaque a lieu toutes les 11 secondes.</Statistique>
-      <Statistique logo="/assets/media/email.png" stat="95%"> des failles de sécurité sont dues à des erreurs humaines.</Statistique>
-      <Statistique logo="/assets/media/password.png" stat="80%"> des attaques initiales dans les entreprises sont du phishing</Statistique>
-      <Statistique logo="/assets/media/people.png" stat="80%"> des mots de passe les plus utilisés sont vulnérables à une attaque en moins d'une seconde.</Statistique>
+      <Statistique logo="/images/clock.png" stat="11 secondes"> En 2024, une cyberattaque a lieu toutes les 11 secondes.</Statistique>
+      <Statistique logo="/images/email.png" stat="95%"> des failles de sécurité sont dues à des erreurs humaines.</Statistique>
+      <Statistique logo="/images/password.png" stat="80%"> des attaques initiales dans les entreprises sont du phishing</Statistique>
+      <Statistique logo="/images/people.png" stat="80%"> des mots de passe les plus utilisés sont vulnérables à une attaque en moins d'une seconde.</Statistique>
     </div>
 
     <!-- Test du mot de passe -->
@@ -85,18 +73,18 @@ onMounted(() => {
 
     <!-- section des 3 colonnes -->
     <div class="Colonne-container">
-      <Colonne title="Protection des Données" image="/assets/media/secu1.jpg"> 
+      <Colonne title="Protection des Données" image="/images/secu1.jpg"> 
           Vos <strong>données personnelles</strong> sont précieuses. Nous vous apprenons à les protéger en 
           adoptant les bonnes pratiques : <strong>gestion des permissions</strong>, chiffrement, et 
           paramétrage de vos comptes pour éviter toute fuite d’informations. 
         </Colonne>
-        <Colonne title="Mot de passe robuste" image="/assets/media/secu2.jpg"> 
+        <Colonne title="Mot de passe robuste" image="/images/secu2.jpg"> 
           Un bon mot de passe est la première ligne de défense contre les attaques ! 
           Découvrez <strong>comment créer des mots de passe robustes</strong>, l’importance de 
           l’authentification à deux facteurs (2FA) et comment gérer efficacement vos 
           identifiants sans compromettre votre sécurité. 
         </Colonne>
-        <Colonne title="Vigilences au arnaques" image="/assets/media/laptop.jpg"> 
+        <Colonne title="Vigilences au arnaques" image="/images/laptop.jpg"> 
           Internet regorge de <strong>pièges</strong> : hameçonnage (phishing), escroqueries en ligne, 
           logiciels malveillants… Apprenez à repérer les signaux d’alerte, à vérifier 
           l’authenticité des sites web et à protéger vos informations face aux menaces numériques. 
@@ -208,14 +196,16 @@ onMounted(() => {
 
 
   &__title {
-    font-size: 4vh;
+    font-size: 5vh;
     margin-bottom: 20px;
+    padding: 0 2ch;
   }
 
   &__paragraph {
-    font-size: 2.5vh;
+    font-size: 3vh;
     margin-bottom: 20px;
-    text-align: justify;  
+    text-align: justify; 
+    padding: 4ch;
   }
 
   @include large-down {
@@ -270,7 +260,7 @@ onMounted(() => {
   justify-content: space-between;
   align-items: flex-start;
   gap: 10vh;
-  padding: 20px;
+  padding: 8vh 20px;;
   margin: 0 auto;
   max-width: 1200px;
   margin-bottom: 4vh;
