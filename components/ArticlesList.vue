@@ -54,7 +54,7 @@ const goToArticle = (id: string) => {
 .articles-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 8vh 20px;
   text-align: center;
 }
 
