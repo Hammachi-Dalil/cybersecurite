@@ -106,6 +106,7 @@ onMounted(() => {
     <!-- section de l'image -->
     <div class="Affiche">
      <img src="/_nuxt/assets/media/bandeau_hack.jpg" alt="Affiche de la cybersecurite" class="Affiche__img">
+     <h1 class="Affiche__title">Venez tester vos connaissances avec le CyberQuizz! </h1>
      <a href="/activite" class="Affiche__link">voir le quizz</a>
     </div>
 
@@ -285,11 +286,38 @@ onMounted(() => {
   .Affiche {
   position: relative; /* Permet au lien d'être positionné par rapport à cet élément */
   text-align: center; /* Centre l'image si nécessaire */
+  
+
+  &__title {
+    position: absolute;
+    top: 15%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste parfaitement le centrage */
+    color: $white;
+    font-size: 8vh;
+    font-weight: bold;
+    font-family: "Comfortaa", cursive;
+    width: 100%;
+    z-index: 2; /* Assure que le texte est au-dessus de l'image */
+  }
 
   &__img {
     width: 100%;
-    filter: grayscale(70%);
     height: 80vh;
+    object-fit: cover;
+    filter: grayscale(70%);
+  }
+
+  /* Superposition du filtre noir */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Opacité de 50% */
+    z-index: 1; /* Assure que le filtre est au-dessus de l'image */
   }
 
   &__link {
@@ -305,6 +333,7 @@ onMounted(() => {
     font-size: 1.5rem;
     font-weight: bold;
     transition: background 0.3s, transform 0.3s;
+    z-index: 3; /* Assure que le lien est au-dessus de la superposition */
   }
 
   &__link:hover {
