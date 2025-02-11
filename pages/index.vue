@@ -105,7 +105,7 @@ onMounted(() => {
 
     <!-- section de l'image -->
     <div class="Affiche">
-     <img src="/_nuxt/assets/media/bandeau_hack.jpg" alt="Affiche de la cybersecurite" class="Affiche__img">
+     <img src="/assets/media/bandeau_hack.jpg" alt="Affiche de la cybersecurite" class="Affiche__img">
      <h1 class="Affiche__title">Venez tester vos connaissances avec le CyberQuizz! </h1>
      <a href="/activite" class="Affiche__link">voir le quizz</a>
     </div>
@@ -345,6 +345,11 @@ onMounted(() => {
   @include large-down {
     &__img {
       height: auto;
+    }
+
+    &__title {
+      font-size: 2vh;
+
     }
   }
 }

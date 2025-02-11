@@ -1,4 +1,5 @@
 <script setup lang="ts">
+type Answer = { text: string; correct: boolean };
 import { ref, onMounted } from 'vue';
 import { useNuxtApp } from '#app';
 import { useRoute, useRouter } from 'vue-router';
@@ -207,7 +208,7 @@ const saveScore = async () => {
 onMounted(() => {
   fetchCurrentUser();
   const quizIndex = Number(route.query.quizIndex);
-  selectedQuiz.value = quizzes.value[quizIndex];
+  selectedQuiz.value = quizzes.value[quizIndex] ?? null;
 });
 
 // Sélection d'une réponse
@@ -269,16 +270,14 @@ const goBack = () => {
 
     <div v-else class="result-box">
       <h3>🎉 Quiz terminé !</h3>
-      <p>Votre score : <strong>{{ score }} / {{ selectedQuiz.questions.length }}</strong></p>
+      <p>Votre score : <strong>{{ score }} / {{ selectedQuiz?.questions.length }}</strong></p>
 
       <h3>📌 Résumé des questions et des bonnes réponses :</h3>
       <ul class="summary-list">
-        <li v-for="(question, index) in selectedQuiz.questions" :key="index">
+        <li v-for="(question, index) in selectedQuiz?.questions" :key="index">
           <p><strong>Question : </strong> {{ question.question }}</p>
           <p><strong>Bonne réponse : </strong>
-            <span class="correct-answer">
-              {{ question.answers.find(answer => answer.correct)?.text }}
-            </span>
+              {{ question.answers.find((answer: Answer) => answer.correct)?.text }}
           </p>
         </li>
       </ul>
